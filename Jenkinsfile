@@ -4,7 +4,7 @@ pipeline {
         stage('checkout') {
             steps {
                 sh 'rm -rf hello-world-war'
-                sh 'https://github.com/kavithakavi9493/hello-world-war'
+                sh 'https://github.com/kavithakavi9493/hello-world-war.git'
 }
 }
         stage('build') {
@@ -15,7 +15,7 @@ pipeline {
         
         stage('deploy') {
             steps {
-                sh 'sudo cp /var/lib/jenkins/workspace/Helloworld_war_job/target/hello-world-war-1.0.0.war /opt/apache-tomcat-10.1.49/webapps/hello-world.war'
+                sh 'sudo cp /var/lib/jenkins/workspace/Helloworld_war_job/target/hello-world-war-1.0.0.war /opt/apache-tomcat-10.1.49/webapps'
 
             }
             
