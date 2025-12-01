@@ -10,7 +10,7 @@ choice(name: 'cmd1', choices: ['package', 'install', 'compile'], description: 'C
 }
    // withCredentials([usernamePassword(credentialsId: "f896c97f-350e-4702-a027-60886e296cab", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                  // your command here
-            }
+            
     stages{
         stage('hello-world-war') {
             parallel{
