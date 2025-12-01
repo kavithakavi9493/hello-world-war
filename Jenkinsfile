@@ -4,9 +4,9 @@ pipeline {
     //parameters([choice( choices: ['package', 'compile', 'install'], name: 'cmd1'),
       //  string(defaultValue: '', name: 'cmd2', trim: true)])
     parameters {
-string(name: 'SAMPLE_STRING', defaultValue: 'default', description: 'A sample string parameter')
+string(name: 'cmd', defaultValue: '', description: 'A sample string parameter')
 booleanParam(name: 'SAMPLE_BOOLEAN', defaultValue: true, description: 'A boolean parameter')
-choice(name: 'GIVE_CHOICE', choices: ['Ansible', 'Kubernetes'], description: 'Choose one option')
+choice(name: 'cmd1', choices: ['package', 'install', 'compile'], description: 'Choose one option')
 }
     stages{
         stage('hello-world-war') {
@@ -21,7 +21,7 @@ choice(name: 'GIVE_CHOICE', choices: ['Ansible', 'Kubernetes'], description: 'Ch
         stage('build') {
             agent{label 'java'}
             steps {
-                sh "mvn clean package"
+                sh "mvn $cmd $cmd1"
             }
         }
         
