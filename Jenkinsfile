@@ -1,6 +1,17 @@
 pipeline {
     //agent { label 'java' }
     agent none
+    parameters([
+                            choice(
+                                choices: ['package', 'compile', 'install'], 
+                                name: 'cmd1'
+                            ),
+        string(
+                                defaultValue: '', 
+                                name: 'cmd2', 
+                                trim: true
+                            )
+                        ])
     stages{
         stage('hello-world-war') {
             parallel{
