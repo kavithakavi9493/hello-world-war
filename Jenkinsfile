@@ -18,13 +18,13 @@ choice(name: 'cmd1', choices: ['package', 'install', 'compile'], description: 'C
                     agent{label 'java'}
             steps {
                 withCredentials([usernamePassword(
-                            credentialsId: 'f896c97f-350e-4702-a027-60886e296cab',
+                           /* credentialsId: 'f896c97f-350e-4702-a027-60886e296cab',
                             usernameVariable: 'Kavitha_USER',
-                            passwordVariable: 'Kavitha_PASS'
-                     /*  withCredentials([sshUserPrivateKey(
+                            passwordVariable: 'Kavitha_PASS' */
+                       withCredentials([sshUserPrivateKey(
                             credentialsId: 'ffeac448-2ed6-4ca8-9879-4be360646164',
                              keyFileVariable: 'Kavitha_SSH_KEY',
-                             usernameVariable: 'Kavitha_SSH_USER' */
+                             usernameVariable: 'Kavitha_SSH_USER' 
                         )]) {
                 sh "rm -rf hello-world-war"
                 sh "git clone https://github.com/kavithakavi9493/hello-world-war"
