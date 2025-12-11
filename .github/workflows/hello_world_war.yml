@@ -37,9 +37,9 @@ jobs:
         sleep 15
 
     - name: Health Check
-      run: curl -I http://13.201.33.185:8080/
+      run: curl -I http://localhost:8080/
 
     - name: Verify Deployed App
       run: |
-        RESPONSE=$(curl -s http://13.201.33.185:8080/)
+        RESPONSE=$(curl -s http://localhost:8080/)
         echo "$RESPONSE"
